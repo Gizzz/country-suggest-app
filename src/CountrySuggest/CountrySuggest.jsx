@@ -26,9 +26,16 @@ class CountrySuggest extends React.Component {
   render() {
     const data = this.props.data;
     const suggestionList = data.map((countryData) => {
+      const flagField = this.props.flagField;
+      const flagUrl = typeof flagField === 'string' ? countryData[flagField] : flagField(countryData);
+      const flagStyles = {
+        background: `url(${flagUrl}) 50% 50% no-repeat`,
+        backgroundSize: '30px 20px'
+      };
+
       return (
         <li key={countryData.name} onClick={this.createSuggestionClickHandler(countryData.name)}>
-          <span className="flag" style={{ background: `url(${countryData.flag}) 50% 50% no-repeat`, backgroundSize: '30px 20px' }}></span>
+          <span className="flag" style={flagStyles}></span>
           <span className="text">{countryData.name}</span>
         </li>
       );
@@ -48,6 +55,10 @@ class CountrySuggest extends React.Component {
 
 CountrySuggest.propTypes = {
   data: PropTypes.array.isRequired,
+  flagField: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]).isRequired,
   onCountryChange: PropTypes.func.isRequired,
 };
 

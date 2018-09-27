@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 import CountrySuggest from './CountrySuggest';
@@ -17,21 +18,30 @@ class CountrySuggest_Container extends React.Component {
       return;
     }
 
-    if (countryName.length < 2) {
+    const minCharsToFireRequest = 2;
+    if (countryName.length < minCharsToFireRequest) {
       return;
     }
 
     axios
-      .get(`https://restcountries.eu/rest/v2/name/${countryName}`)
+      .get(`${this.props.apiUrl}/name/${countryName}`)
       .then(response => this.setState({ data: response.data }))
       .catch(console.log);
   }
 
   render() {
     return (
-      <CountrySuggest data={this.state.data} onCountryChange={this.handleCountryChange} />
+      <CountrySuggest data={this.state.data} flagField={this.props.flagField} onCountryChange={this.handleCountryChange} />
     );
   }
 }
+
+CountrySuggest_Container.propTypes = {
+  apiUrl: PropTypes.string.isRequired,
+  flagField: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.func,
+  ]).isRequired,
+};
 
 export default CountrySuggest_Container;

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 import CountrySuggest_Container from './CountrySuggest/CountrySuggest_Container'
+
+import logo from './logo.svg';
+import './App.css';
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <CountrySuggest_Container />
+        <CountrySuggest_Container apiUrl="https://restcountries.eu/rest/v2" flagField={responseItem => responseItem.flag} />
       </div>
     );
   }

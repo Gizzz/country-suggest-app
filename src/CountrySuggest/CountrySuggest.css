@@ -1,0 +1,42 @@
+.country-suggest input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px 10px;
+  width: 300px;
+}
+
+.country-suggest .suggestions {
+  margin: 0 auto;
+  width: 300px;
+
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 5px;
+  padding: 5px;
+  list-style-type: none;
+  text-align: left;
+}
+
+.country-suggest .suggestions li {
+  padding: 5px 0;
+}
+
+.country-suggest .suggestions li:hover,
+.country-suggest .suggestions li.active {
+  background-color: #e7e7e7;
+  cursor: pointer;
+}
+
+.country-suggest .suggestions li .flag {
+  display: inline-block;
+  margin-left: 10px;
+  width: 30px;
+  height: 20px;
+}
+
+.country-suggest .suggestions li .text {
+  position: relative;
+  top: -4px;
+  display: inline-block;
+  margin-left: 10px;
+}

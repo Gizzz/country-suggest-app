@@ -29,5 +29,8 @@ npm start
 Здесь значение flagField указано жетско в виде строки. Это подходит для случая если нужное поле находится среди невложенных полей объекта.
 Если же нужное поле находится глубже, то путь к нему можно задать функцией:
 ```
-<CountrySuggest_Container apiUrl="https://restcountries.eu/rest/v2" flagField={responseItem => responseItem.nestedObject.flag} />
+<CountrySuggest_Container
+  apiUrl="https://restcountries.eu/rest/v2"
+  flagField={responseItem => responseItem.nestedObject.flag} 
+/>
 ```

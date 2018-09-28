@@ -1,11 +1,11 @@
-.country-suggest input {
+.country-suggest__input {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px 10px;
   width: 300px;
 }
 
-.country-suggest .suggestions {
+.country-suggest__suggestions {
   margin: 0 auto;
   width: 300px;
 
@@ -17,24 +17,24 @@
   text-align: left;
 }
 
-.country-suggest .suggestions li {
+.country-suggest__suggestion-item {
   padding: 5px 0;
 }
 
-.country-suggest .suggestions li:hover,
-.country-suggest .suggestions li.active {
+.country-suggest__suggestion-item:hover,
+.country-suggest__suggestion-item--active {
   background-color: #e7e7e7;
   cursor: pointer;
 }
 
-.country-suggest .suggestions li .flag {
+.country-suggest__flag {
   display: inline-block;
   margin-left: 10px;
   width: 30px;
   height: 20px;
 }
 
-.country-suggest .suggestions li .text {
+.country-suggest__text {
   position: relative;
   top: -4px;
   display: inline-block;

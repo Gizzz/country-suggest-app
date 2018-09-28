@@ -75,22 +75,26 @@ class CountrySuggest extends React.Component {
 
       return (
         <li
-          className={index === this.state.activeSuggestionIndex ? 'active' : ''}
+          className={
+            index === this.state.activeSuggestionIndex 
+              ? 'country-suggest__suggestion-item country-suggest__suggestion-item--active' 
+              : 'country-suggest__suggestion-item'
+          }
           key={countryData.name}
           onClick={this.createSuggestionClickHandler(countryData.name)}
         >
-          <span className="flag" style={flagStyles}></span>
-          <span className="text">{countryData.name}</span>
+          <span className="country-suggest__flag" style={flagStyles}></span>
+          <span className="country-suggest__text">{countryData.name}</span>
         </li>
       );
     });
 
     return (
       <div className="country-suggest">
-        <input type="text" value={this.state.country} onChange={this.handleInputChange} onKeyDown={this.handleInputKeydown} />
+        <input className="country-suggest__input" type="text" value={this.state.country} onChange={this.handleInputChange} onKeyDown={this.handleInputKeydown} />
         {
           suggestionList.length > 0 && this.state.isSuggestionsOpen &&
-          <ul className="suggestions">{suggestionList}</ul>
+          <ul className="country-suggest__suggestions">{suggestionList}</ul>
         }
       </div>
     );
